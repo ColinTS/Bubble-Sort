@@ -122,7 +122,7 @@ function insert(numbers){
       temp = numbers[j];
       numbers[j] = numbers[j - 1];
       numbers[j - 1] = temp;
-      j = j -1;
+      j = j - 1;
     }
   }
   return numbers;
