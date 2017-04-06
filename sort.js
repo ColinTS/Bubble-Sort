@@ -1,10 +1,18 @@
 /*jshint esversion: 6*/
 module.exports = (function()  {
 
+//Helper function to swap numbers
+ function swap(numbers, i, j){
+     var temp = numbers[i];
+     numbers[i] = numbers[j];
+     numbers[j] = temp;
+  }
+
+//---------------ALGORITHMS---------------//
+
 //Bubble Sort Algo
   function mrSortyPants(numbers) {
     var swapped;
-    var temp;
 
     //loops through numbers, defaults "swapped" to false.
     for (var i = 0; i < numbers.length; i++){
@@ -13,9 +21,7 @@ module.exports = (function()  {
       //loops through numbers and swaps numbers, sets "swapped" to true.
       for (var y = 0; y < numbers.length; y++){
         if(numbers[y] > numbers[y +1]){
-          temp = numbers[y];
-          numbers[y] = numbers[y + 1];
-          numbers[y + 1] = temp;
+          swap(numbers, y, y + 1);
           swapped = true;
         }
       }
@@ -76,12 +82,6 @@ module.exports = (function()  {
   return i;
 }
 
-  function swap(numbers, i, j){
-     var temp = numbers[i];
-     numbers[i] = numbers[j];
-     numbers[j] = temp;
-  }
-
 
 //Merge Sort Algo
 
@@ -119,9 +119,7 @@ function insert(numbers){
   for(var i = 1; i < numbers.length; i++){
    var j = i;
     while(j > 0 && numbers[j-1] > numbers[j]){
-      temp = numbers[j];
-      numbers[j] = numbers[j - 1];
-      numbers[j - 1] = temp;
+      swap(numbers, j, j - 1);
       j = j - 1;
     }
   }
