@@ -27,5 +27,42 @@ describe('quick sort', () => {
       expect(sort.howBoutAQuickie([4,1,9,2,12,3])).to.deep.equal([1,2,3,4,9,12]);
     });
 
+});
+
+describe('merge sort', () => {
+
+  it('should be a function', () => {
+      expect(sort.divide).to.be.a('function');
+    });
+
+  it('should sort an unsorted ray', () => {
+      expect(sort.divide([4,1,9,2,12,3])).to.deep.equal([1,2,3,4,9,12]);
+    });
 
 });
+
+describe('insertion sort', () => {
+
+  it('should be a function', () => {
+      expect(sort.insert).to.be.a('function');
+    });
+
+  it('should sort an unsorted ray', () => {
+      expect(sort.insert([4,1,9,2,12,3])).to.deep.equal([1,2,3,4,9,12]);
+    });
+
+});
+
+describe('selection sort', () => {
+
+  it('should be a function', () => {
+      expect(sort.selection).to.be.a('function');
+    });
+
+  it('should sort an unsorted ray', () => {
+      expect(sort.selection([4,1,9,2,12,3])).to.deep.equal([1,2,3,4,9,12]);
+    });
+
+});
+
+

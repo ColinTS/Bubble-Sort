@@ -83,11 +83,80 @@ module.exports = (function()  {
   }
 
 
+//Merge Sort Algo
+
+  //recursively divides numbers array into single arrays for each number
+  function divide(numbers){
+    //base case
+    if (numbers.length <= 1){
+      return numbers;
+    }
+    var middle = Math.floor(numbers.length / 2);
+    var leftGroup = divide(numbers.slice(0, middle));
+    var rightGroup = divide(numbers.slice(middle));
+
+    return conquer(leftGroup, rightGroup);
+  }
+
+  //compares and combines each number into one ordered array.
+  function conquer(left, right){
+    var ordered = [];
+
+    while(left.length > 0 && right.length > 0){
+      if(left[0] < right[0]){
+        ordered.push(left.shift());
+      } else{
+        ordered.push(right.shift());
+      }
+    }
+    return ordered.concat(left.length? left : right);
+  }
+
+//Insertion Sort Algo
+function insert(numbers){
+  var temp;
+
+  for(var i = 1; i < numbers.length; i++){
+   var j = i;
+    while(j > 0 && numbers[j-1] > numbers[j]){
+      temp = numbers[j];
+      numbers[j] = numbers[j - 1];
+      numbers[j - 1] = temp;
+      j = j -1;
+    }
+  }
+  return numbers;
+}
+
+//Selection Sort Algo
+function selection(numbers){
+  var min;
+
+  //outer loop sets first value as minimum
+  for(var i = 0; i < numbers.length; i++){
+    min = i;
+    //inner loop loops through array and sets new minimum value if there is one
+    for(var j = i + 1; j < numbers.length; j++) {
+        if(numbers[j] < numbers[min]) {
+          min = j;
+        }
+      }
+    if(i !== min){
+      swap(numbers, i, min);
+    }
+  }
+  return numbers;
+}
+
   return {
     mrSortyPants: mrSortyPants,
     howBoutAQuickie: howBoutAQuickie,
     partition: partition,
-    swap: swap
+    swap: swap,
+    divide: divide,
+    conquer: conquer,
+    insert: insert,
+    selection: selection
   };
 
 })();
