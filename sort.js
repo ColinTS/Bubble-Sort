@@ -40,20 +40,15 @@ module.exports = (function()  {
     var index;
 
     if (numbers.length > 1) {
-
       low = typeof low != "number" ? 0 : low;
       high = typeof high != "number" ? numbers.length - 1 : high;
-
       index = partition(numbers, low, high);
-
       if (low < index - 1) {
           howBoutAQuickie(numbers, low, index - 1);
       }
-
       if (index < high) {
           howBoutAQuickie(numbers, index, high);
       }
-
     }
     return numbers;
     }
@@ -64,15 +59,12 @@ module.exports = (function()  {
     var j = high;
 
     while (i <= j) {
-
       while (numbers[i] < pivot) {
           i++;
       }
-
       while (numbers[j] > pivot) {
           j--;
       }
-
       if (i <= j) {
           swap(numbers, i, j);
           i++;
