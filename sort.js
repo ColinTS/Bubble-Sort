@@ -1,4 +1,5 @@
 /*jshint esversion: 6*/
+
 module.exports = (function()  {
 
 //Helper function to swap numbers
@@ -104,13 +105,12 @@ module.exports = (function()  {
     return ordered.concat(left.length? left : right);
   }
 
+
 //Insertion Sort Algo
 function insert(numbers){
-  var temp;
-
   for(var i = 1; i < numbers.length; i++){
    var j = i;
-    while(j > 0 && numbers[j-1] > numbers[j]){
+   while(j > 0 && numbers[j-1] > numbers[j]){
       swap(numbers, j, j - 1);
       j = j - 1;
     }
@@ -118,13 +118,12 @@ function insert(numbers){
   return numbers;
 }
 
+
 //Selection Sort Algo
 function selection(numbers){
-  var min;
-
   //outer loop sets first value as minimum
   for(var i = 0; i < numbers.length; i++){
-    min = i;
+    var min = i;
     //inner loop loops through array and sets new minimum value if there is one
     for(var j = i + 1; j < numbers.length; j++) {
         if(numbers[j] < numbers[min]) {
@@ -150,4 +149,3 @@ function selection(numbers){
   };
 
 })();
-
