@@ -145,4 +145,4 @@ Return numbered array
 
 #### Best Case / Worst Case Scenario
 - O(n²) -
-Best case and worse case share the same, because either way the double nested for loop will result in the algorithm having to loop doubly over the numbered array.
+Best case and worst case share the same, because either way the double nested for loop will result in the algorithm having to loop doubly over the numbered array.
